@@ -59,7 +59,13 @@ export default function App() {
       ))}
       <br />
       <br />
-      <button onClick={() => setsolk(f.showSolution())}>Show Solution </button>
+      {ques.length ? (
+        <button onClick={() => setsolk(f.showSolution())}>
+          Show Solution{" "}
+        </button>
+      ) : (
+        <></>
+      )}
       <br />
       <br />
       {solk.map((i) => (
