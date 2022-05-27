@@ -1,7 +1,8 @@
 class HindiNumbers {
   constructor() {
-    this.guess;
-    this.solution;
+    this.guess = [];
+    this.solution = [];
+    this.type = 1;
     const conversions = [
       [31, "इकतीस"],
       [32, "बत्तीस"],
@@ -73,7 +74,8 @@ class HindiNumbers {
     };
   }
 
-  getFive(num = 1) {
+  getFive(num = 1, type = 1) {
+    this.type = type;
     const conversions = this.getConversions(),
       result = new Map(),
       n = conversions.length;
@@ -83,8 +85,8 @@ class HindiNumbers {
       result.set(conversions[got][0], conversions[got][1]);
     }
 
-    this.guess = [...result.keys()];
-    this.solution = [...result.values()];
+    this.guess = this.type ? [...result.keys()] : [...result.values()];
+    this.solution = this.type ? [...result.values()] : [...result.keys()];
     return this.guess;
   }
 
